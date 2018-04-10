@@ -879,17 +879,17 @@ static CGFloat kCRCollisionTweak = 0.5;
         }
     }
     
-    if (self.inAnimationType == CRToastAnimationTypeGravity) {
-        if (self.animateInTimeInterval != kCRAnimateInTimeIntervalDefault) {
-            NSLog(@"[CRToast] : WARNING - It is not sensible to have set kCRToastAnimationInTypeKey to @(CRToastAnimationTypeGravity) and configure a kCRToastAnimationInTimeIntervalKey. Gravity and distance will be driving the in animation duration here. kCRToastAnimationGravityMagnitudeKey can be modified to change the in animation duration.");
-        }
-    }
+//    if (self.inAnimationType == CRToastAnimationTypeGravity) {
+//        if (self.animateInTimeInterval != kCRAnimateInTimeIntervalDefault) {
+//            NSLog(@"[CRToast] : WARNING - It is not sensible to have set kCRToastAnimationInTypeKey to @(CRToastAnimationTypeGravity) and configure a kCRToastAnimationInTimeIntervalKey. Gravity and distance will be driving the in animation duration here. kCRToastAnimationGravityMagnitudeKey can be modified to change the in animation duration.");
+//        }
+//    }
     
-    if (self.outAnimationType == CRToastAnimationTypeGravity) {
-        if (self.animateOutTimeInterval != kCRAnimateOutTimeIntervalDefault) {
-            NSLog(@"[CRToast] : WARNING - It is not sensible to have set kCRToastAnimationOutTypeKey to @(CRToastAnimationTypeGravity) and configure a kCRToastAnimationOutTimeIntervalKey. Gravity and distance will be driving the in animation duration here. kCRToastAnimationGravityMagnitudeKey can be modified to change the in animation duration.");
-        }
-    }
+//    if (self.outAnimationType == CRToastAnimationTypeGravity) {
+//        if (self.animateOutTimeInterval != kCRAnimateOutTimeIntervalDefault) {
+//            NSLog(@"[CRToast] : WARNING - It is not sensible to have set kCRToastAnimationOutTypeKey to @(CRToastAnimationTypeGravity) and configure a kCRToastAnimationOutTimeIntervalKey. Gravity and distance will be driving the in animation duration here. kCRToastAnimationGravityMagnitudeKey can be modified to change the in animation duration.");
+//        }
+//    }
     
     if (self.forceUserInteraction) {
         if (self.gestureRecognizers.count == 0) {

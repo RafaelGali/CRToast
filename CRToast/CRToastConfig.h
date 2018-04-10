@@ -98,7 +98,7 @@ typedef NS_ENUM(NSInteger, CRToastAnimationDirection) {
 typedef NS_ENUM(NSInteger, CRToastAnimationType) {
     CRToastAnimationTypeLinear,
     CRToastAnimationTypeSpring,
-    CRToastAnimationTypeGravity
+//    CRToastAnimationTypeGravity
 };
 
 /**

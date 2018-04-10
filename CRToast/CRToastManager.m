@@ -185,28 +185,28 @@ CRToastAnimationStepBlock CRToastOutwardAnimationsSetupBlock(CRToastManager *wea
                                  animations:CRToastOutwardAnimationsBlock(weakSelf)
                                  completion:CRToastOutwardAnimationsCompletionBlock(weakSelf)];
             } break;
-            case CRToastAnimationTypeGravity: {
-                if (weakSelf.notification.animator == nil) {
-                    [weakSelf.notification initiateAnimator:weakSelf.notificationWindow.rootViewController.view];
-                }
-                [weakSelf.notification.animator removeAllBehaviors];
-                UIGravityBehavior *gravity = [[UIGravityBehavior alloc]initWithItems:@[weakSelf.notificationView, weakSelf.statusBarView]];
-                gravity.gravityDirection = notification.outGravityDirection;
-                gravity.magnitude = notification.animationGravityMagnitude;
-                NSMutableArray *collisionItems = [@[weakSelf.notificationView] mutableCopy];
-                if (notification.presentationType == CRToastPresentationTypePush) [collisionItems addObject:weakSelf.statusBarView];
-                UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:collisionItems];
-                collision.collisionDelegate = weakSelf;
-                [collision addBoundaryWithIdentifier:kCRToastManagerCollisionBoundryIdentifier
-                                           fromPoint:notification.outCollisionPoint1
-                                             toPoint:notification.outCollisionPoint2];
-                UIDynamicItemBehavior *rotationLock = [[UIDynamicItemBehavior alloc] initWithItems:collisionItems];
-                rotationLock.allowsRotation = NO;
-                [weakSelf.notification.animator addBehavior:gravity];
-                [weakSelf.notification.animator addBehavior:collision];
-                [weakSelf.notification.animator addBehavior:rotationLock];
-                weakSelf.gravityAnimationCompletionBlock = CRToastOutwardAnimationsCompletionBlock(weakSelf);
-            } break;
+//            case CRToastAnimationTypeGravity: {
+//                if (weakSelf.notification.animator == nil) {
+//                    [weakSelf.notification initiateAnimator:weakSelf.notificationWindow.rootViewController.view];
+//                }
+//                [weakSelf.notification.animator removeAllBehaviors];
+//                UIGravityBehavior *gravity = [[UIGravityBehavior alloc]initWithItems:@[weakSelf.notificationView, weakSelf.statusBarView]];
+//                gravity.gravityDirection = notification.outGravityDirection;
+//                gravity.magnitude = notification.animationGravityMagnitude;
+//                NSMutableArray *collisionItems = [@[weakSelf.notificationView] mutableCopy];
+//                if (notification.presentationType == CRToastPresentationTypePush) [collisionItems addObject:weakSelf.statusBarView];
+//                UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:collisionItems];
+//                collision.collisionDelegate = weakSelf;
+//                [collision addBoundaryWithIdentifier:kCRToastManagerCollisionBoundryIdentifier
+//                                           fromPoint:notification.outCollisionPoint1
+//                                             toPoint:notification.outCollisionPoint2];
+//                UIDynamicItemBehavior *rotationLock = [[UIDynamicItemBehavior alloc] initWithItems:collisionItems];
+//                rotationLock.allowsRotation = NO;
+//                [weakSelf.notification.animator addBehavior:gravity];
+//                [weakSelf.notification.animator addBehavior:collision];
+//                [weakSelf.notification.animator addBehavior:rotationLock];
+//                weakSelf.gravityAnimationCompletionBlock = CRToastOutwardAnimationsCompletionBlock(weakSelf);
+//            } break;
         }
     };
 }
@@ -340,29 +340,29 @@ inwardCompletionAnimationBlock:(CRToastAnimationCompletionBlock)inwardAnimations
                              animations:inwardAnimationsBlock
                              completion:inwardAnimationsCompletionBlock];
         } break;
-        case CRToastAnimationTypeGravity: {
-            UIView *notificationView = notification.notificationView;
-            UIView *statusBarView = notification.statusBarView;
-            
-            [notification initiateAnimator:_notificationWindow.rootViewController.view];
-            [notification.animator removeAllBehaviors];
-            UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:@[notificationView, statusBarView]];
-            gravity.gravityDirection = notification.inGravityDirection;
-            gravity.magnitude = notification.animationGravityMagnitude;
-            NSMutableArray *collisionItems = [@[notificationView] mutableCopy];
-            if (notification.presentationType == CRToastPresentationTypePush) [collisionItems addObject:statusBarView];
-            UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:collisionItems];
-            collision.collisionDelegate = self;
-            [collision addBoundaryWithIdentifier:kCRToastManagerCollisionBoundryIdentifier
-                                       fromPoint:notification.inCollisionPoint1
-                                         toPoint:notification.inCollisionPoint2];
-            UIDynamicItemBehavior *rotationLock = [[UIDynamicItemBehavior alloc] initWithItems:collisionItems];
-            rotationLock.allowsRotation = NO;
-            [notification.animator addBehavior:gravity];
-            [notification.animator addBehavior:collision];
-            [notification.animator addBehavior:rotationLock];
-            self.gravityAnimationCompletionBlock = inwardAnimationsCompletionBlock;
-        } break;
+//        case CRToastAnimationTypeGravity: {
+//            UIView *notificationView = notification.notificationView;
+//            UIView *statusBarView = notification.statusBarView;
+//
+//            [notification initiateAnimator:_notificationWindow.rootViewController.view];
+//            [notification.animator removeAllBehaviors];
+//            UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:@[notificationView, statusBarView]];
+//            gravity.gravityDirection = notification.inGravityDirection;
+//            gravity.magnitude = notification.animationGravityMagnitude;
+//            NSMutableArray *collisionItems = [@[notificationView] mutableCopy];
+//            if (notification.presentationType == CRToastPresentationTypePush) [collisionItems addObject:statusBarView];
+//            UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:collisionItems];
+//            collision.collisionDelegate = self;
+//            [collision addBoundaryWithIdentifier:kCRToastManagerCollisionBoundryIdentifier
+//                                       fromPoint:notification.inCollisionPoint1
+//                                         toPoint:notification.inCollisionPoint2];
+//            UIDynamicItemBehavior *rotationLock = [[UIDynamicItemBehavior alloc] initWithItems:collisionItems];
+//            rotationLock.allowsRotation = NO;
+//            [notification.animator addBehavior:gravity];
+//            [notification.animator addBehavior:collision];
+//            [notification.animator addBehavior:rotationLock];
+//            self.gravityAnimationCompletionBlock = inwardAnimationsCompletionBlock;
+//        } break;
     }
 }
 
